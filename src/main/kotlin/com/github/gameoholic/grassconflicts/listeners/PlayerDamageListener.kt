@@ -108,6 +108,18 @@ object PlayerDamageListener : Listener {
                 var damagerGC: GCPlayer? = gameManager.gamePlayers.firstOrNull {gcPlayer -> gcPlayer.player.uniqueId == damagerPlayer?.uniqueId}
                 if (damagerGC != null)
                     damagerGC.arrowLanded++
+
+                if (killedByArrow && damagerGC?.lastShotBowName != null) {
+                    var itemName = PlainTextComponentSerializer.plainText().serialize(damagerGC.lastShotBowName)
+                    itemName = itemName.substring(1, itemName.length - 1)
+                    when (itemName) {
+                        "Stefan Noxite Panić" -> {e.damage = 6.0}
+                        "Gun" -> {e.damage = 0.5}
+                        "Bigger Gun" -> {e.damage = 0.5}
+                        else -> {e.damage = 3.0}
+                    }
+                }
+
             }
 
         //We return this late because we want to cancel the damage event if the damager is dead
@@ -173,7 +185,7 @@ object PlayerDamageListener : Listener {
 
         if (killer != null) {
             gcPlayer.player.sendActionBar(Component.text("Killed by ").color(NamedTextColor.RED)
-                .append(gcPlayer.player.name().color(killer.team.textColor)))
+                .append(Component.text(killer.player.name).color(killer.team.textColor)))
             var itemName = PlainTextComponentSerializer.plainText().serialize(killer.player.inventory.itemInMainHand.displayName())
             var itemColor = killer.player.inventory.itemInMainHand.displayName().color()
             if (killedByArrow) {

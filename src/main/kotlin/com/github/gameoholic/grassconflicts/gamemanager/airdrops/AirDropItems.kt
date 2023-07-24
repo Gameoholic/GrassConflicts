@@ -118,7 +118,6 @@ object AirDropItems {
         meta.persistentDataContainer.set(key, PersistentDataType.SHORT, 15)
         meta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
         meta.addEnchant(Enchantment.ARROW_KNOCKBACK, 5, true)
-        meta.addEnchant(Enchantment.ARROW_DAMAGE, 2, true)
         val unstackableKey = NamespacedKey(GrassConflicts.plugin, "random") //make unstackable
         meta.persistentDataContainer.set(unstackableKey, PersistentDataType.STRING, UUID.randomUUID().toString())
         itemStack.itemMeta = meta

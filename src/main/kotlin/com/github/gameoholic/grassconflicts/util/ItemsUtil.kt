@@ -81,7 +81,6 @@ object ItemsUtil {
         bowMeta.isUnbreakable = true
         bowMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE)
         bowMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS)
-        bowMeta.addEnchant(Enchantment.ARROW_DAMAGE, 1, true)
         bow.itemMeta = bowMeta
         player.inventory.setItem(1, bow)
 

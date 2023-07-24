@@ -8,7 +8,7 @@ import org.bukkit.Material
 data class Team(val name: String, val textColor: TextColor, val color: Color, var material: Material) {
     companion object {
         val GRASS = Team("Grass", NamedTextColor.GREEN, Color.LIME, Material.GRASS_BLOCK)
-        val MYCELIUM = Team("Mycelium", TextColor.color(125, 96, 124),
-            Color.fromBGR(125, 96, 124), Material.MYCELIUM)
+        val MYCELIUM = Team("Mycelium", TextColor.color(161, 69, 157),
+            Color.fromBGR(161, 69, 157), Material.MYCELIUM)
     }
 }

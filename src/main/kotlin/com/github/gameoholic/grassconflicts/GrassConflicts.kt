@@ -4,7 +4,6 @@ import com.github.gameoholic.grassconflicts.commands.StartCommand
 import com.github.gameoholic.grassconflicts.commands.TestCommand
 import com.github.gameoholic.grassconflicts.gamemanager.GameManager
 import com.github.gameoholic.grassconflicts.listeners.*
-import com.github.gameoholic.grassconflicts.nms.PacketManager
 import org.bukkit.Bukkit
 import org.bukkit.World
 
@@ -13,13 +12,9 @@ object GrassConflicts {
     val world: World = Bukkit.getWorlds()[0]
     lateinit var plugin: GrassConflictsPlugin
         private set
-    lateinit var packetManager: PacketManager
-        private set
 
     fun onEnable(grassConflictsPlugin: GrassConflictsPlugin) {
         plugin = grassConflictsPlugin
-
-        packetManager = createPacketManager()
 
         plugin.getCommand("start")?.setExecutor(StartCommand)
         plugin.getCommand("test")?.setExecutor(TestCommand)
@@ -42,8 +37,5 @@ object GrassConflicts {
 
     }
 
-    private fun createPacketManager(): PacketManager = when (val serverVersion = Bukkit.getServer().minecraftVersion) {
-        "1.19.4" -> com.github.gameoholic.grassconflicts.nms.v1_19_R3.PacketManager()
-        else -> throw UnsupportedOperationException("Unsupported Minecraft version: $serverVersion")
-    }
+
 }

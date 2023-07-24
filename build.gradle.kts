@@ -1,6 +1,6 @@
 plugins {
-  id("io.papermc.paperweight.userdev") version "1.5.4"
-  id("xyz.jpenilla.run-paper") version "2.0.1" // Adds runServer and runMojangMappedServer tasks for testing
+  id("io.papermc.paperweight.userdev") version "1.5.5"
+  id("xyz.jpenilla.run-paper") version "2.1.0" // Adds runServer and runMojangMappedServer tasks for testing
   kotlin("jvm") version "1.8.21"
   id("com.github.johnrengelman.shadow") version "7.0.0"
 }
@@ -21,7 +21,7 @@ repositories {
 
 
 dependencies {
-  paperweight.paperDevBundle("1.19.4-R0.1-SNAPSHOT") //the paper dev bundle is a compile-only dependency, paper itself provides it. No need to shade
+    paperweight.paperDevBundle("1.20.1-R0.1-SNAPSHOT") //the paper dev bundle is a compile-only dependency, paper itself provides it. No need to shade
 
   implementation(kotlin("stdlib-jdk8"))
   implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
